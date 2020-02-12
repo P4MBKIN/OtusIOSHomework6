@@ -9,7 +9,8 @@
 import Foundation
 
 protocol SuffixArrayManipulator {
+    func suffixArrayHasEntries() -> Bool
     func addAllObjects() -> TimeInterval
     func sortArray() -> TimeInterval
-    
+    func find(_ count: Int) -> (TimeInterval, Int)
 }

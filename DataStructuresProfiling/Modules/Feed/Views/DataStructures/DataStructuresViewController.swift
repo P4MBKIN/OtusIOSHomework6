@@ -26,7 +26,7 @@ class DataStructuresViewController: UIViewController, UITableViewDataSource, UIT
 
   //MARK: item tracking
 
-  fileprivate var numberOfItems: Int = 1000 //Default to 1000
+  var numberOfItems: Int = -1
 
   //MARK: Lazy-instantiated variables
 
@@ -58,6 +58,7 @@ class DataStructuresViewController: UIViewController, UITableViewDataSource, UIT
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    numberOfItems = Int(slider.value)
     testOnlyButton.isEnabled = false
     resultsTableView.isScrollEnabled = false
     updateCountLabel()

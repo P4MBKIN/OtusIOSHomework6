@@ -58,8 +58,7 @@ extension FeedViewController: UITableViewDelegate {
                 vc = storyboard.instantiateViewController(withIdentifier: "DictionaryViewController")
             case "SuffixArray":
                 let storyboard = UIStoryboard(name: "DataStructures", bundle: nil)
-                // TODO
-                vc = storyboard.instantiateViewController(withIdentifier: "DictionaryViewController")
+                vc = storyboard.instantiateViewController(withIdentifier: "SuffixArrayViewController")
             default:
                 let storyboard = UIStoryboard(name: "Feed", bundle: nil)
                 vc = storyboard.instantiateViewController(withIdentifier: "SessionSummaryViewController")
