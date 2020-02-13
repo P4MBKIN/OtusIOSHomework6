@@ -10,12 +10,27 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    private let feedData = Services.feedProvider.feedMockData()
+    private var feedData = Services.feedProvider.feedMockData()
     
     @IBOutlet weak var feedTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+}
+
+extension FeedViewController: UISearchBarDelegate {
+    
+    // MARK: - Search Bar Delegate
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text, !text.isEmpty {
+            feedData = Services.feedProvider.feedMockData().filter{ $0.name.contains(searchBar.text ?? "") }
+        } else {
+            feedData = Services.feedProvider.feedMockData()
+        }
+        self.feedTableView.reloadData()
     }
 }
 
